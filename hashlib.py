@@ -1,0 +1,19 @@
+import hashlib
+
+def calculate_file_hash(file_path, algorithm='sha256'):
+    # Создаем объект хеша в зависимости от выбранного алгоритма
+    hash_algo = hashlib.new(algorithm)
+    
+    # Открываем файл в бинарном режиме
+    with open(file_path, 'rb') as f:
+        # Читаем файл по частям, чтобы не загружать весь файл в память
+        for chunk in iter(lambda: f.read(4096), b""):
+            hash_algo.update(chunk)
+    
+    # Возвращаем хеш в виде шестнадцатеричной строки
+    return hash_algo.hexdigest()
+
+# Пример использования
+file_path = 'path/to/your/file.txt'
+file_hash = calculate_file_hash(file_path)
+print(f'SHA-256 хеш файла: {file_hash}')
