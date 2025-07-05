@@ -13,7 +13,7 @@ def calculate_file_hash(file_path, algorithm='sha256'):
     # Возвращаем хеш в виде шестнадцатеричной строки
     return hash_algo.hexdigest()
 
-# Пример какой
+# Пример использования
 file_path = 'path/to/your/file.txt'
 file_hash = calculate_file_hash(file_path)
 print(f'SHA-256 хеш файла: {file_hash}')
