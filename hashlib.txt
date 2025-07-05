@@ -6,7 +6,7 @@ def calculate_file_hash(file_path, algorithm='sha256'):
     
     # Открываем файл в бинарном режиме
     with open(file_path, 'rb') as f:
-        # Читаем файл по частям, чтобы не загружать весь файл в память
+        
         for chunk in iter(lambda: f.read(4096), b""):
             hash_algo.update(chunk)
     
